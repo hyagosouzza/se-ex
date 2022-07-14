@@ -1,0 +1,13 @@
+.mat-drawer-container {
+  height: 100%;
+
+  &__left {
+    width: 300px;
+  }
+
+  &__right {
+    &__content {
+      margin: 30px 20px 0;
+    }
+  }
+}

@@ -1,0 +1,17 @@
+<mat-card class="score__header">
+  <h2>Scores</h2>
+</mat-card>
+
+<mat-card>
+  <mat-card-content>
+    <mat-progress-bar *ngIf="loading" mode="query"></mat-progress-bar>
+    <mat-list role="list">
+      <mat-list-item class="score__content-item" role="listitem" *ngFor="let score of scores">
+        <b>{{score.descricao}}</b> - {{score.inicial}} à {{score.ffinal}}
+      </mat-list-item>
+    </mat-list>
+    <p style="color: gray" *ngIf="!loading && (!scores || !scores.length)">
+      <i>Nenhum resultado encontrado...</i>
+    </p>
+  </mat-card-content>
+</mat-card>

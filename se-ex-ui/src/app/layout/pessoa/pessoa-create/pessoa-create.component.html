@@ -1,0 +1,73 @@
+<mat-card>
+  <mat-card-title>
+    <div class="title">
+      <mat-icon>draw</mat-icon>
+      Cadastro de Pessoa
+    </div>
+    <div>
+      <button (click)="cancel()" mat-button>Voltar</button>
+    </div>
+  </mat-card-title>
+  <mat-card-content>
+    <mat-progress-bar *ngIf="loading" mode="query"></mat-progress-bar>
+    <form #f="ngForm">
+      <mat-grid-list cols="4" rowHeight="100px">
+        <mat-grid-tile colspan="2" rowspan="1">
+          <mat-form-field appearance="outline">
+            <mat-label>Nome</mat-label>
+            <input required matInput placeholder="Nome" name="nome" [(ngModel)]="pessoaCommand.nome">
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="1" rowspan="1">
+          <mat-form-field appearance="outline">
+            <mat-label>Telefone</mat-label>
+            <input required matInput placeholder="Telefone" mask="(00) 00000-0000" name="telefone" [(ngModel)]="pessoaCommand.telefone">
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="1" rowspan="1">
+          <mat-form-field appearance="outline">
+            <mat-label>Idade</mat-label>
+            <input required matInput placeholder="Idade" mask="0*" name="idade" [(ngModel)]="pessoaCommand.idade">
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="1" rowspan="1">
+          <mat-form-field appearance="outline">
+            <mat-label>Cidade</mat-label>
+            <input required matInput placeholder="Cidade" name="cidade" [(ngModel)]="pessoaCommand.cidade">
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="1" rowspan="1">
+          <mat-form-field appearance="outline">
+            <mat-label>Estado</mat-label>
+            <mat-select required placeholder="Estado" name="estado" [(ngModel)]="pessoaCommand.estado">
+              <mat-option *ngFor="let estado of estados" [value]="estado">{{estado}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="1" rowspan="1">
+          <mat-form-field appearance="outline">
+            <mat-label>Score</mat-label>
+            <input required matInput placeholder="Score" name="score" [(ngModel)]="pessoaCommand.score">
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="1" rowspan="1">
+          <mat-form-field appearance="outline">
+            <mat-label>Região</mat-label>
+            <mat-select required placeholder="Região" name="regiao" [(ngModel)]="pessoaCommand.regiao">
+              <mat-option *ngFor="let regiao of regioes" [value]="regiao.regiao">{{regiao.regiao}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </form>
+    <p><i>* campos obrigatórios</i></p>
+    <mat-card-actions align="end">
+      <button mat-button (click)="cancel()">Cancelar</button>
+      <button mat-flat-button color="primary"
+              [disabled]="f.invalid"
+              [matTooltip]="f.invalid ? 'Preencha todos os campos' : ''"
+              (click)="addPessoa()">Submeter
+      </button>
+    </mat-card-actions>
+  </mat-card-content>
+</mat-card>

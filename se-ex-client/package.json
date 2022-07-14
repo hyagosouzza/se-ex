@@ -1,0 +1,34 @@
+{
+	"name": "se-ex-client",
+	"version": "1.0.0",
+	"description": "",
+	"main": "dist/index.js",
+	"module": "dist/index.js",
+	"es2015": "dist/index.js",
+	"typings": "dist/index.ts",
+	"scripts": {
+		"build": "ngc",
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"gen": "npm i && npm run build && npm publish"
+	},
+	"author": "Hyago Souza",
+	"license": "ISC",
+	"peerDependencies": {
+		"@angular/common": "~13.3.0",
+		"@angular/compiler": "~13.3.0",
+		"rxjs": "~7.5.0",
+		"zone.js": "~0.11.4",
+		"@angular/core": "~13.3.0"
+	},
+	"devDependencies": {
+		"@angular/common": "~13.3.0",
+		"@angular/compiler": "~13.3.0",
+		"@angular/core": "~13.3.0",
+		"@angular/compiler-cli": "~13.3.0",
+		"@angular/cli": "~13.3.0",
+		"rimraf": "^2.6.3",
+		"rxjs": "~7.5.0",
+		"typescript": "~4.6.2",
+		"zone.js": "~0.11.4"
+	}
+}

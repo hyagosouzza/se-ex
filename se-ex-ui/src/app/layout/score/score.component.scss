@@ -1,0 +1,16 @@
+@import 'src/assets/sass/mixins';
+@import 'src/assets/sass/variables';
+
+.score {
+  &__header {
+    margin-bottom: 10px;
+    @include header();
+  }
+
+  &__content-item {
+    b {
+      color: $dark-gray;
+      margin-right: 5px;
+    }
+  }
+}

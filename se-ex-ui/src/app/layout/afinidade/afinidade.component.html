@@ -1,0 +1,48 @@
+<mat-card class="afinidade__header">
+  <h2>Afinidades</h2>
+</mat-card>
+
+<mat-card>
+  <mat-card-content>
+    <mat-progress-bar *ngIf="loading" mode="query"></mat-progress-bar>
+    <form #f="ngForm">
+      <mat-grid-list cols="4" rowHeight="100px">
+        <mat-grid-tile colspan="1" rowspan="1">
+          <mat-form-field appearance="outline">
+            <mat-label>Região</mat-label>
+            <input required matInput placeholder="Região" name="regiao" [(ngModel)]="afinidadeCommand.regiao">
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="3" rowspan="1">
+          <mat-form-field appearance="outline">
+            <mat-label>Estado</mat-label>
+            <mat-select multiple required placeholder="Estado" name="estado" [(ngModel)]="afinidadeCommand.estados">
+              <mat-option *ngFor="let estado of estados" [value]="estado">{{estado}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </form>
+    <div class="afinidade__content-actions">
+      <p><i>* campos obrigatórios</i></p>
+      <button mat-flat-button color="primary"
+              [disabled]="f.invalid"
+              [matTooltip]="f.invalid ? 'Preencha todos os campos' : ''"
+              (click)="save()">Cadastrar
+      </button>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+<mat-card class="afinidade__list">
+  <mat-card-content>
+    <mat-list role="list">
+      <mat-list-item class="afinidade__list-item" role="listitem" *ngFor="let afinidade of afinidades">
+        <b>{{afinidade.regiao}}</b> - {{afinidade.estados}}
+      </mat-list-item>
+    </mat-list>
+    <p style="color: gray" *ngIf="!loading && (!afinidades || !afinidades.length)">
+      <i>Nenhum resultado encontrado...</i>
+    </p>
+  </mat-card-content>
+</mat-card>

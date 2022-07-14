@@ -1,0 +1,20 @@
+<mat-card>
+  <mat-card-title>
+    <div class="title">
+      <mat-icon>draw</mat-icon>
+      {{pessoa?.nome}}
+    </div>
+    <div>
+      <button (click)="cancel()" mat-button>Voltar</button>
+    </div>
+  </mat-card-title>
+  <mat-card-content>
+    <mat-progress-bar *ngIf="loading" mode="query"></mat-progress-bar>
+    <div>
+      <p><b>Telefone:</b>{{pessoa?.telefone}}</p>
+      <p><b>Idade:</b>{{pessoa?.idade}}</p>
+      <p><b>Score:</b>{{pessoa?.scoreDescricao}}</p>
+      <p><b>Estados:</b>{{pessoa?.estados}}</p>
+    </div>
+  </mat-card-content>
+</mat-card>

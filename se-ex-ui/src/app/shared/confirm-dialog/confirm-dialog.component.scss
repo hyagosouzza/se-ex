@@ -1,0 +1,12 @@
+@import 'src/assets/sass/variables';
+
+h1 {
+  font-weight: 500;
+  border-bottom: 1px solid $gray;
+}
+
+mat-dialog-actions {
+  button {
+    margin-left: 10px;
+  }
+}

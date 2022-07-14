@@ -1,0 +1,36 @@
+@import 'src/assets/sass/variables';
+@import 'src/assets/sass/mixins';
+
+table {
+  width: 100%;
+}
+
+.menu {
+  color: rgba(0, 0, 0, .54);
+}
+
+.mat-elevation-z8 {
+  min-height: 130px;
+}
+
+.pessoas {
+  &__header {
+    @include header();
+
+    .mat-mini-fab {
+      margin-left: 15px;
+      color: whitesmoke;
+      background-color: $main-color;
+
+      mat-icon {
+        color: whitesmoke;
+      }
+    }
+  }
+
+  &__no-results {
+    margin: 20px;
+    font-style: italic;
+    color: gray;
+  }
+}
